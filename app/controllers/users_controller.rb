@@ -1,3 +1,4 @@
+require 'pp'
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @micropost = Micropost.find_by_user_id(@user.id)
   end
 
   # GET /users/new
